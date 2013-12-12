@@ -1,0 +1,23 @@
+{
+  "name": "lighthouse",
+  "version": "0.0.2",
+  "description": "Hold all your lightswitches in a house",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/emkay/lighthouse.git"
+  },
+  "keywords": [
+    "feature",
+    "switch",
+    "lightswitch"
+  ],
+  "author": "Michael Matuzak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/emkay/lighthouse/issues"
+  }
+}
