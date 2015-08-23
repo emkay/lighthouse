@@ -1,23 +1,36 @@
 {
   "name": "lighthouse",
-  "version": "0.0.2",
-  "description": "Hold all your lightswitches in a house",
+  "version": "1.0.0",
+  "description": "Source of truth for feature switches",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "standard --verbose | snazzy",
+    "test": "npm run lint && tape test/*.js"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/emkay/lighthouse.git"
+    "url": "git+https://github.com/emkay/lighthouse.git"
   },
   "keywords": [
     "feature",
-    "switch",
-    "lightswitch"
+    "switch"
   ],
   "author": "Michael Matuzak",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/emkay/lighthouse/issues"
+  },
+  "homepage": "https://github.com/emkay/lighthouse#readme",
+  "devDependencies": {
+    "request": "^2.61.0",
+    "snazzy": "^2.0.1",
+    "standard": "^5.1.0",
+    "tape": "^4.2.0"
+  },
+  "dependencies": {
+    "concat-stream": "^1.5.0",
+    "negotiator": "^0.5.3",
+    "object-assign": "^4.0.1",
+    "toml": "^2.3.0"
   }
 }

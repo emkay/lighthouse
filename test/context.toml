@@ -1,0 +1,16 @@
+title = "Tests"
+
+[yes]
+value = "no"
+
+[all]
+  tacos = true
+
+[lang]
+  [lang.all]
+    value = "all"
+  [lang.en-US]
+    value = true
+  [lang.en-UK]
+    value = false
+    tacos = false
