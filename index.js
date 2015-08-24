@@ -10,6 +10,8 @@ function Lighthouse (options) {
   if (!(this instanceof Lighthouse)) {
     return new Lighthouse(options)
   }
+
+  this.options = options || {}
 }
 
 Lighthouse.prototype.readConfig = function readConfig (config, cb) {
@@ -21,6 +23,17 @@ Lighthouse.prototype.readConfig = function readConfig (config, cb) {
   }
 
   s.pipe(concat(parser))
+}
+
+Lighthouse.prototype.getFeatures = function getFeatures (context, cb) {
+  this.readConfig(this.options.config, function (err, data) {
+    if (err) {
+      return cb(err)
+    }
+
+    var ret = oa(data.all, data.lang[context.lang])
+    cb(null, ret)
+  })
 }
 
 Lighthouse.prototype.createServer = function createServer (options) {

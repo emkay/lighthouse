@@ -1,7 +1,7 @@
 const test = require('tape')
 const Lighthouse = require('..')
 const request = require('request')
-var lh = Lighthouse()
+var lh = Lighthouse({config: __dirname + '/context.toml'})
 
 test('read config', function (t) {
   t.plan(5)
@@ -33,5 +33,21 @@ test('create server', function (t) {
   request(options, function (err, res, body) {
     t.notOk(err, 'should not have an error')
     lh.closeServer()
+  })
+})
+
+test('getFeatures', function (t) {
+  t.plan(6)
+
+  lh.getFeatures({lang: 'en-US'}, function (err, data) {
+    t.notOk(err, 'should not have an error')
+    t.equal(data.value, true)
+    t.equal(data.tacos, true)
+  })
+
+  lh.getFeatures({lang: 'en-UK'}, function (err, data) {
+    t.notOk(err, 'should not have an error')
+    t.equal(data.value, false)
+    t.equal(data.tacos, false)
   })
 })
