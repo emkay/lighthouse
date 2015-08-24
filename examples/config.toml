@@ -2,12 +2,8 @@
   value = "Example"
 
 [all]
-  [all.enableHeader]
-    value = true
-  [all.enableYes]
-    value = true
+    enableHeader = true
 
 [lang]
   [lang.en-US]
-    [lang.en-US.enableHeader]
-      value = false
+    enableHeader = false
