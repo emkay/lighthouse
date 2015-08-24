@@ -2,6 +2,7 @@ const fs = require('fs')
 const http = require('http')
 const toml = require('toml')
 const concat = require('concat-stream')
+const response = require('response')
 const oa = require('object-assign')
 const Negotiator = require('negotiator')
 
@@ -32,11 +33,11 @@ Lighthouse.prototype.createServer = function createServer (options) {
 
     self.readConfig(options.config, function (err, data) {
       if (err) {
-        return res.end('Bad config')
+        return response.error(new Error('Bad config')).statue(500).pipe(res)
       }
 
       var ret = oa(data.all, data.lang[lang])
-      res.end(JSON.stringify(ret))
+      response.json(ret).status(200).pipe(res)
     })
   }
 
